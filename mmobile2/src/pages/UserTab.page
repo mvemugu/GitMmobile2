@@ -1,0 +1,19 @@
+<apex:page showHeader="false" standardController="User"
+    extensions="ProfileTabUserController" >
+
+    <apex:outputPanel >
+
+        <p>Your name is {!$User.FirstName} {!$User.LastName}, and 
+        you're the viewer. Your UID is {!viewerID}.</p>
+        <br/>
+
+        <p>You are viewing the profile of {!user.name}, 
+        whose UID is {!subjectID}.</p>
+        <br/>
+
+        <p>Are you viewing your own profile? {!viewingMyProfile}</p>
+        <br/>
+
+    </apex:outputPanel>
+
+</apex:page>

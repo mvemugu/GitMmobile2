@@ -1,0 +1,59 @@
+<apex:page standardController="Account" extensions="canvasExtension">
+
+<script type="text/javascript" src="/canvas/sdk/js/31.0/controller.js"></script>     
+
+
+<script>
+    var sourceId;
+    var sourceId1; 
+     
+    Sfdc.canvas(function() {  
+   
+         Sfdc.canvas.controller.subscribe(
+            {name : 'myns.sendVal', 
+             onData : function (data) {                 
+                  sourceId = data.value;             
+                  alert('Source Id=' + sourceId ); 
+                  }          
+            });
+            Sfdc.canvas.controller.subscribe(
+            {name : 'myns.sendVal1', 
+             onData : function (data) {                 
+                  sourceId1 = data.value;             
+                  alert('Source Id====' + sourceId1 ); 
+                  }          
+            });
+             
+           });
+                                                   
+</script>
+
+
+
+<body>
+    <apex:pageBlock >
+           <apex:pageBlockSection title="Instructions:" columns="1">
+             <h3><p><font face="Arial" style="color:#585858 ; font-weight:bold">
+                1. Test From Mallik VF page .<br/>               
+                </font></p>          
+             </h3>
+              </apex:pageBlockSection>
+       </apex:pageBlock>
+       
+        <apex:pageBlock >
+           <apex:pageBlockSection title="Instructions:" columns="1">
+                 <apex:canvasApp applicationName="first_canvas" height="400px" width="750px" parameters="{Name:'{!account.name}',ActId:'{!account.Id}'}"/>
+             </apex:pageBlockSection>
+       </apex:pageBlock>
+       
+       <apex:pageBlock >
+           <apex:pageBlockSection title="Instructions:" columns="1">
+                 <apex:outputText id="canvasId1">{!account.name}</apex:outputText>              
+             </apex:pageBlockSection>
+       </apex:pageBlock>
+    
+</body>
+
+
+
+</apex:page>

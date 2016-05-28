@@ -1,0 +1,8 @@
+<apex:page StandardController="Expense__c" cache="true">
+    <apex:outputPanel rendered="{!AND(Expense__c.GPS__Latitude__s!=null, Expense__c.GPS__Longitude__s!=null)}">
+        <apex:image value="http://maps.googleapis.com/maps/api/staticmap?center={!Expense__c.GPS__Latitude__s},{!Expense__c.GPS__Longitude__s}&markers=color:red%7C{!Expense__c.GPS__Latitude__s},{!Expense__c.GPS__Longitude__s}&zoom=7&size=300x300&maptype=roadmap&sensor=true" /> 
+    </apex:outputPanel>
+    <apex:outputPanel rendered="{!OR(Expense__c.GPS__Latitude__s=null, Expense__c.GPS__Longitude__s=null)}">
+        <b>GPS coordenates not found!</b>
+    </apex:outputPanel>
+</apex:page>

@@ -1,0 +1,33 @@
+<apex:page >
+    <script type="text/javascript">
+    var __sfdcSessionId = '{!GETSESSIONID()}';
+    </script>
+    
+        <script src="../../soap/ajax/34.0/connection.js"
+        type="text/javascript"></script>
+
+    <script type="text/javascript">
+    window.onload = setupPage;
+    function setupPage() {
+      //function contains all code to execute after page is rendered
+           
+           //create an account
+            var account = new sforce.SObject("Account");
+            account.Name = "Mallik Ajax";
+            account.Phone = "2837484894";
+            result = sforce.connection.create([account]);
+            //update that account
+            account.id = result[0].id;
+            account.Phone = "12398238";
+            result = sforce.connection.update([account]);
+  }
+  
+  
+  function queryFailed(error, source) {
+     alert('FailupdateCallback :  \n'+error.message);
+  }
+
+  
+   </script>
+      
+</apex:page>

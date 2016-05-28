@@ -1,0 +1,39 @@
+<apex:page controller="MyPageController" showHeader="false">
+  <center>
+    <apex:outputPanel layout="block" style="font-size: 16pt; margin-top: 50px; width: 400px">
+      <h2>Sample Illustrating How to Establish Communication Between Page and Component</h2>
+    </apex:outputPanel> 
+    <apex:outputPanel layout="block" style="width: 300px;">
+      <hr/>
+      <h1>Component Shown below:</h1><hr/>
+      <!-- take notice of the new attribute in use -->
+      <c:MyComponent pageController1="{!this}" key1="component1" rendered="true"/> 
+      <hr/>
+      <br/><br/>
+      <!-- take notice of the 2nd component -->
+      <c:MyComponent pageController1="{!this}" key1="component2" rendered="true"/>
+      <apex:form >
+        <apex:commandButton style="font-size: 12pt; color: black" 
+             action="{!callComponent1ControllerMethod}" 
+             value="Call Component Controller Method for first component" 
+             rerender="output" />
+        <br/>
+        <apex:commandButton style="font-size: 12pt; color: black" 
+             action="{!callComponent2ControllerMethod}" 
+             value="Call Component Controller Method for second component" 
+             rerender="output" />
+        <apex:outputText value="Clicking the buttons above will call the 
+                 method on the component controllers to increment the initial
+                 values from the components above." />
+      </apex:form>
+      <apex:outputPanel id="output" style="font-size: 12pt;"> 
+        <center> 
+      <b>first:</b><apex:outputText value="{!myComponent1Controller.intValue}" />
+      <hr/>
+          <b>first:</b><apex:outputText value="{!myComponent2Controller.intValue}" />
+          <hr/>
+    </center>
+      </apex:outputPanel>
+    </apex:outputPanel>
+  </center>
+</apex:page>

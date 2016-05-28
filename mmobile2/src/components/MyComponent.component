@@ -1,0 +1,22 @@
+<apex:component controller="MyComponentController" >
+  
+  <!-- the new attribute -->
+  <apex:attribute name="key1"  
+    type="String" 
+    assignTo="{!Key}" 
+    description="The key given to this component so the page can easily get access to it" />
+
+  <apex:attribute name="pageController1" 
+      type="PageControllerBase" 
+      assignTo="{!pageController}" 
+      required="true" 
+      description="The controller for the page." />
+	
+  <apex:outputPanel layout="block" style="font-size: 12pt; border: 1pt solid black; width: 250px;">
+    <center>
+      <apex:outputText value="This is in the component." />
+      <br/>
+      <apex:outputText value="initial int value: {!intValue}" />
+    </center>
+  </apex:outputPanel>
+</apex:component>

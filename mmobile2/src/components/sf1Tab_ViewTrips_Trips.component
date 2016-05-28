@@ -1,0 +1,16 @@
+<apex:component selfClosing="true">
+    <apex:attribute name="Trips" description="List of Trips" type="Trip__c[]" required="true"/>
+    
+    <apex:pageBlock >
+        <apex:pageBlockTable value="{!Trips}" var="t" style="width:100%">
+            <apex:column headerValue="Trip">
+                <a href="javascript:sforce.one.navigateToSObject('{!t.id}');">{!t.Name}</a>
+            </apex:column>
+            <apex:column value="{!t.Total_Expenses__c}"/>
+            <apex:column headerValue="Checks">
+                <apex:outputPanel style="white-space:nowrap"><apex:outputField value="{!t.isActive__c}"/>&nbsp;Active<br/></apex:outputPanel>
+                <apex:outputPanel style="white-space:nowrap"><apex:outputField value="{!t.SubmitedReport__c}"/>&nbsp;Submitted<br/></apex:outputPanel>
+            </apex:column>
+        </apex:pageBlockTable> 
+    </apex:pageBlock>  
+</apex:component>

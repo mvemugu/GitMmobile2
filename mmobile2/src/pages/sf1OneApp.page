@@ -1,0 +1,2 @@
+<apex:page controller="sf1OneApp" showHeader="false" action="{!Redirect}">
+</apex:page>
