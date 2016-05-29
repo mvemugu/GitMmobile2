@@ -9,8 +9,7 @@ global with sharing class AccountRestService{
         Account account = [SELECT Id FROM Account WHERE Id = :accountId];
         delete account;
     }
-    // Added Comments5 to push
-    // and add another extra line
+    // Added Comments5 to push    
 
     @HttpGet
     global static Account doGet() {
